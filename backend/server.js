@@ -1,4 +1,5 @@
 console.log("######## THIS IS THE LATEST SERVER.JS ########");
+
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -6,12 +7,10 @@ const pool = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
 const flightRoutes = require("./routes/flightRoutes");
-console.log("✅ flightRoutes loaded");
-
-app.use("/api/flights", flightRoutes);
-console.log("✅ /api/flights route registered");
 const bookingRoutes = require("./routes/bookingRoutes");
 const complaintRoutes = require("./routes/complaintRoutes");
+
+console.log("✅ flightRoutes loaded");
 
 const app = express();
 
@@ -19,7 +18,10 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+
 app.use("/api/flights", flightRoutes);
+console.log("✅ /api/flights route registered");
+
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/complaints", complaintRoutes);
 
