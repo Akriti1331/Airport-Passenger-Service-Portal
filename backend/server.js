@@ -6,6 +6,10 @@ const pool = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
 const flightRoutes = require("./routes/flightRoutes");
+console.log("✅ flightRoutes loaded");
+
+app.use("/api/flights", flightRoutes);
+console.log("✅ /api/flights route registered");
 const bookingRoutes = require("./routes/bookingRoutes");
 const complaintRoutes = require("./routes/complaintRoutes");
 
