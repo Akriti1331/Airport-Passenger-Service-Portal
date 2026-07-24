@@ -6,10 +6,12 @@ const {
   createFlight,
   editFlight,
   removeFlight,
+  getLiveFlights,
 } = require("../controllers/flightController");
 const authMiddleware = require("../middleware/authMiddleware");
 
 router.get("/", getFlights);
+router.get("/live", getLiveFlights);
 router.get("/search", searchFlight);
 router.post("/", authMiddleware, createFlight);
 router.put("/:id", authMiddleware, editFlight);

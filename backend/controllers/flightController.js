@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 const {
   getAllFlights,
   searchFlights,
@@ -151,6 +153,29 @@ const removeFlight = async (req, res) => {
   }
 };
 
+const getLiveFlights = async (req, res) => {
+  try {
+    const response = await axios.get(
+      "https://api.aviationstack.com/v1/flights",
+      {
+        params: {
+          access_key: process.env.AVIATIONSTACK_API_KEY,
+          dep_iata: "DEL",
+          limit: 100,
+        },
+      },
+    );
+
+    res.status(200).json(response.data.data);
+  } catch (error) {
+    console.error(error.response?.data || error.message);
+
+    res.status(500).json({
+      message: "Unable to fetch live flights",
+    });
+  }
+};
+
 module.exports = {
   getFlights,
   searchFlight,
@@ -158,4 +183,5 @@ module.exports = {
   createFlight,
   editFlight,
   removeFlight,
+  getLiveFlights,
 };

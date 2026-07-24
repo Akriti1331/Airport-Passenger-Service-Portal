@@ -22,6 +22,9 @@ const Navbar = () => {
         <li>
           <Link to="/flights">Flights</Link>
         </li>
+        <li>
+          <Link to="/live-flights">Live Flights</Link>
+        </li>
 
         {!token && (
           <>

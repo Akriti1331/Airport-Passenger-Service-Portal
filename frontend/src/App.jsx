@@ -10,6 +10,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Flights from "./pages/Flights.jsx";
+import LiveFlights from "./pages/LiveFlights.jsx";
 import MyBookings from "./pages/MyBookings.jsx";
 import Complaints from "./pages/Complaints.jsx";
 import AdminPanel from "./pages/AdminPanel.jsx";
@@ -38,6 +39,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Flights />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/live-flights"
+          element={
+            <ProtectedRoute>
+              <LiveFlights />
             </ProtectedRoute>
           }
         />
