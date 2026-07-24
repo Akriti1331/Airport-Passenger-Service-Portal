@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../services/api";
 import FlightCard from "../components/FlightCard.jsx";
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext.jsx";
