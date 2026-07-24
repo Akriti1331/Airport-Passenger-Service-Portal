@@ -33,7 +33,7 @@ const LiveFlights = () => {
 
   const fetchLiveFlights = async () => {
     try {
-      const res = await axios.get("/api/flights/live");
+      const res = await api.get("/api/flights/live");
       setFlights(res.data);
       setFilteredFlights(res.data);
     } catch (err) {

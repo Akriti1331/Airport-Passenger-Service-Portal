@@ -17,7 +17,7 @@ const Complaints = () => {
     try {
       setLoading(true);
       setError("");
-      const response = await axios.get("/api/complaints/my", {
+      const response = await api.get("/api/complaints/my", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setComplaints(response.data);
@@ -44,7 +44,7 @@ const Complaints = () => {
 
     try {
       setSubmitting(true);
-      await axios.post(
+      await api.post(
         "/api/complaints",
         { subject, description },
         { headers: { Authorization: `Bearer ${token}` } },

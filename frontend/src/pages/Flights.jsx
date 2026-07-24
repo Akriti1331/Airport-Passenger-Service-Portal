@@ -18,7 +18,7 @@ const Flights = () => {
     try {
       setLoading(true);
       setError("");
-      const response = await axios.get("/api/flights");
+      const response = await api.get("/api/flights");
       setFlights(response.data);
     } catch (err) {
       setError("Failed to load flights. Please try again.");
@@ -43,7 +43,7 @@ const Flights = () => {
 
     try {
       setLoading(true);
-      const response = await axios.get("/api/flights/search", {
+      const response = await api.get("/api/flights/search", {
         params: { source, destination },
       });
       setFlights(response.data);
@@ -73,7 +73,7 @@ const Flights = () => {
     }
 
     try {
-      await axios.post(
+      await api.post(
         "/api/bookings",
         { flight_id: flight.id, seat_number },
         { headers: { Authorization: `Bearer ${token}` } },

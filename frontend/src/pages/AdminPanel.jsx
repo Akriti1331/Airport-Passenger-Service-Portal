@@ -34,9 +34,9 @@ const AdminPanel = () => {
       setError("");
 
       const [flightsRes, bookingsRes, complaintsRes] = await Promise.all([
-        axios.get("/api/flights"),
-        axios.get("/api/bookings", authHeader),
-        axios.get("/api/complaints/all", authHeader),
+        api.get("/api/flights"),
+        api.get("/api/bookings", authHeader),
+        api.get("/api/complaints/all", authHeader),
       ]);
 
       setFlights(flightsRes.data);
@@ -101,14 +101,14 @@ const AdminPanel = () => {
 
     try {
       if (editingFlightId) {
-        await axios.put(
+        await api.put(
           `/api/flights/${editingFlightId}`,
           flightForm,
           authHeader,
         );
         setSuccess("Flight updated successfully");
       } else {
-        await axios.post("/api/flights", flightForm, authHeader);
+        await api.post("/api/flights", flightForm, authHeader);
         setSuccess("Flight added successfully");
       }
 
@@ -147,7 +147,7 @@ const AdminPanel = () => {
     }
 
     try {
-      await axios.delete(`/api/flights/${id}`, authHeader);
+      await api.delete(`/api/flights/${id}`, authHeader);
       setSuccess("Flight deleted successfully");
       fetchAllData();
     } catch (err) {

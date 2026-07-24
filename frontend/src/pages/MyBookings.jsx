@@ -13,7 +13,7 @@ const MyBookings = () => {
     try {
       setLoading(true);
       setError("");
-      const response = await axios.get("/api/bookings/my", {
+      const response = await api.get("/api/bookings/my", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBookings(response.data);
@@ -38,7 +38,7 @@ const MyBookings = () => {
     }
 
     try {
-      await axios.delete(`/api/bookings/${id}`, {
+      await api.delete(`/api/bookings/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Booking cancelled successfully");
