@@ -14,8 +14,12 @@ const getFlights = async (req, res) => {
     const flights = await getAllFlights();
     res.status(200).json(flights);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error while fetching flights" });
+    console.error("GET FLIGHTS ERROR:", error);
+
+    res.status(500).json({
+      message: error.message,
+      code: error.code,
+    });
   }
 };
 
