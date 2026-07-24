@@ -2,8 +2,8 @@
 -- Airport Passenger Service Portal - Database
 -- ==============================================
 
-CREATE DATABASE IF NOT EXISTS airport_passenger_portal;
-USE airport_passenger_portal;
+//CREATE DATABASE IF NOT EXISTS airport_passenger_portal;
+//USE airport_passenger_portal;
 
 -- ==============================================
 -- Table: users
