@@ -1,3 +1,4 @@
+console.log("######## THIS IS THE LATEST SERVER.JS ########");
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -19,7 +20,7 @@ app.use("/api/bookings", bookingRoutes);
 app.use("/api/complaints", complaintRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Airport Passenger Service Portal API is running");
+  res.send("NEW SERVER.JS LOADED");
 });
 
 const PORT = process.env.PORT || 5000;
